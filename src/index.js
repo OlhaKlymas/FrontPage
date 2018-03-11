@@ -1,7 +1,7 @@
-// import ownCarousel from 'js/own.carousel.min.js';
-// import isotope from 'js/isotope.pkgd.min.js';
-// import jQuery from 'js/jquery-3.3.1.min.js';
-// import chart from 'js/Chart.min.js';
+// import ownCarousel from './js/own.carousel.min.js'
+// import isotope from './js/isotope.pkgd.min.js'
+// import jQuery from './js/jquery-3.3.1.min.js'
+// import chart from './js/Chart.min.js'
 
 let $grid = $('.grid').isotope({
   itemSelector: '.element-item',

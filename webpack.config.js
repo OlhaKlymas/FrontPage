@@ -1,9 +1,8 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const $ = require("jquery");
-const Chart = require('chart.js');
-
+// const $ = require("jquery");
+// const Chart = require('chart.js');
 
 module.exports={
 	entry:{
@@ -15,11 +14,11 @@ module.exports={
 	},
 plugins: [
 	new HtmlWebpackPlugin({template: "./static/template.html"}),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery'
-    })
+    // new webpack.ProvidePlugin({
+    //   $: 'jquery',
+    //   jQuery: 'jquery',
+    //   'window.jQuery': 'jquery'
+    // })
 ],
 module:{
 	rules:[
