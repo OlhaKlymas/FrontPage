@@ -1,9 +1,166 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hello world!</title>
+	<title>JOB OF MY DREAM</title>
+	<link rel="stylesheet" type="text/css" href="../style.css">
+  <script src = " https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 </head>
-<body>
 
+<body onload="loadCurrencies()">
+	<div>
+		<img src="../static/img/html-logo.png" class="backImgHtml"><img src="../static/img/css-logo.png" class="backImgCss">
+		<img src="../static/img/js-logo.png" class="backImgJs"></div>
+	<div id="line">
+		<div class="rope ropeL"></div>
+		<div class="rope ropeR"></div>
+	</div>
+	<div><h1>~JOB OF MY DREAM~</h1></div>
+		<div class="description">
+			<h3>If you do what you like, you will be successful</h3>
+			<hr />
+			<p>It leaves enough time for family, recreation, self-development and is paid adequately. This job is with the change of activity: with a certain balance of mental and physical activity, favorable to health and the environment. It stores, enhances and promotes spiritual, personal and professional growth. An ideal job allows me to communicate with people and brings social benefits. It is reliable, constant and brings the pleasure of the process and the outcome.</p>
+      <div class="container mail-panel">
+        <div class="col-md-offset-4 col-md-4 panel">
+          <div class="row header">Currency Converter</div>
+          <div class="row">
+            <div class="col-md-2">Amount:</div>
+            <div class="col-md-10">
+              <input type="text" oninput="converterCurrency()" class="form-control" id="amount"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">From:</div>
+            <div class="col-md-4"><select onchange="converterCurrency()" id="from"></select></div>
+            <div class="col-md-2">To:</div>
+            <div class="col-md-4"><select onchange="converterCurrency()" id="to"></select></div>
+          </div>
+          <div class="row">
+            Result:<span id="result"></span>
+          </div>
+        </div>
+      </div>
+		</div>
+		<div class="upperBlock">
+			<div class="warpUpperBlock">
+        <h2>Sort</h2>
+<div id="filters" class="button-group">  <button class="button is-checked" data-filter="*">show all</button>
+  <button class="button" data-filter=".know">I know</button>
+  <button class="button" data-filter=":not(.know)">I want to learn</button>
+  <button class="button" data-filter=".actual">actual</button>
+</div>
+
+<h2>Filter</h2>
+<div id="sorts" class="button-group">  <button class="button is-checked" data-sort-by="original-order" data-filter="*">original order</button>
+  <button class="button" data-sort-by="name">name</button>
+  <button class="button" data-filter="templateers">templateers</button>
+  <button class="button" data-filter="taskManagers">task managers</button>
+  <button class="button" data-filter="bandlers">bandlers</button>
+  <button class="button" data-filter="frameworksJS">frameworks JS</button>
+  <button class="button" data-filter="preprocessorsCSS">preprocessors CSS</button>
+  <button class="button" data-filter="frameworksCSS">frameworks CSS</button>
+</div>
+				<div class="grid">
+  <div class="element-item taskManagers actual" data-category="taskManagers">
+    <h3 class="name">Gulp.js</h3>
+  </div>
+  <div class="element-item taskManagers know actual" data-category="taskManagers">
+    <h3 class="name">npm</h3>
+  </div>
+  <div class="element-item bandlers know actual" data-category="bandlers">
+    <h3 class="name">Webpack</h3>
+  </div>
+  <div class="element-item frameworksJS know actual" data-category="frameworksJS">
+    <h3 class="name">jQuery</h3>
+  </div>
+  <div class="element-item taskManagers actual" data-category="taskManagers">
+    <h3 class="name">Grunt</h3>
+  </div>
+  <div class="element-item frameworksJS actual" data-category="frameworksJS">
+    <h3 class="name">React</h3>
+  </div>
+  <div class="element-item bandlers actual" data-category="bandlers">
+    <h3 class="name">Browserify</h3>
+  </div>
+  <div class="element-item frameworksJS" data-category="frameworksJS">
+    <h3 class="name">Ember.js</h3>
+  </div>
+  <div class="element-item bandlers" data-category="bandlers">
+    <h3 class="name">RequireJS</h3>
+  </div>
+  <div class="element-item preprocessorsCSS know actual" data-category="preprocessorsCSS">
+    <h3 class="name">SASS</h3>
+  </div>
+  <div class="element-item preprocessorsCSS" data-category="preprocessorsCSS">
+    <h3 class="name">Stylus</h3>
+  </div>
+  <div class="element-item frameworksCSS know actual" data-category="frameworksCSS">
+    <h3 class="name">Bootstrap</h3>
+  </div>
+  <div class="element-item frameworksJS" data-category="frameworksJS">
+    <h3 class="name">Meteor.js</h3>
+  </div>
+  <div class="element-item frameworksCSS" data-category="frameworksCSS">
+    <h3 class="name">Foundation</h3>
+  </div>
+  <div class="element-item frameworksJS actual" data-category="frameworksJS">
+    <h3 class="name">Angular2</h3>
+  </div>
+  <div class="element-item preprocessorsCSS know" data-category="preprocessorsCSS">
+    <h3 class="name">Less</h3>
+  </div>
+  <div class="element-item frameworksJS know actual" data-category="frameworksJS">
+    <h3 class="name">Veu.js</h3>
+  </div>
+  <div class="element-item frameworksCSS actual" data-category="frameworksCSS">
+    <h3 class="name">Susy</h3>
+  </div>
+  <div class="element-item templateers know actual" data-category="templateers">
+    <h3 class="name">Jade</h3>
+  </div>
+  <div class="element-item templateers" data-category="templateers">
+    <h3 class="name">Hogan</h3>
+  </div>
+  <div class="element-item frameworksCSS actual" data-category="frameworksCSS">
+    <h3 class="name">Pure</h3>
+  </div>
+  <div class="element-item templateers" data-category="templateers">
+    <h3 class="name">Mustache</h3>
+  </div>
+  <div class="element-item templateers" data-category="templateers">
+    <h3 class="name">Walrus</h3>
+  </div>
+  <div class="element-item templateers actual" data-category="templateers">
+    <h3 class="name">Dust</h3>
+  </div>
+</div>
+			</div>
+		</div>
+		<div class="middleBlock">
+      <div class="warpMiddleBlock">
+        <div class="radialCanvas">
+          <h4>Сorrelation of knowledge and relevance</h4>
+          <canvas id="radialChart" width="300" height="300" ></canvas>
+        </div>
+        <div class="polarCanvas">
+          <h4>Degree of ownership of technology</h4>
+          <canvas id="polarChart" width="300" height="300" ></canvas>
+        </div>
+      </div>
+    </div>
+		<div class="sliderBlock">
+      <div class="warpSliderBlock"></div>  
+    </div>
+		<div class="lowerBlock"></div>
+		<div class="footer"></div>
+		<div id="base"></div>
 <script type="text/javascript" src="main.js"></script></body>
 </html>
+
