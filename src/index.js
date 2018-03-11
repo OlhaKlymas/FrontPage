@@ -138,22 +138,43 @@ var polarAreaChart = new Chart(polarCanvas, {
   data: polarData
 });
 
-$(document).ready(function() {
-              var owl = $('.owl-carousel');
-              owl.owlCarousel({
-                margin: 10,
-                nav: true,
-                loop: true,
-                responsive: {
-                  0: {
-                    items: 1
-                  },
-                  600: {
-                    items: 3
-                  },
-                  1000: {
-                    items: 5
-                  }
-                }
-              })
-            })
+$(document).ready(function(){
+  let owl = $(".owl-carousel"),
+      url = null,
+      bgDrop = $(".bg-drop"),
+      prev = $("#left"),
+      next = $("#right");
+
+  owl.owlCarousel({
+    loop: true,
+    center: true,
+    margin: 10,
+    stagePadding: 20,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      640: {
+        items: 2,
+        autoplay: true,
+        autoplayTimeout: 1000,
+        autoplaySpeed: 500,
+        smartSpeed: 1000
+      },
+      1200: {
+        items: 3,
+        autoplay: true,
+        autoplayTimeout: 1500,
+        autoplaySpeed: 500,
+        smartSpeed: 1000
+      }
+    }
+  });
+
+  next.on("click", ()=>{
+    owl.trigger("next.owl.carousel");
+  });
+  prev.on("click", ()=>{
+    owl.trigger("prev.owl.carousel");
+  })
+});
