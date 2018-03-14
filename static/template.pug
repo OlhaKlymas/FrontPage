@@ -1,0 +1,163 @@
+doctype html
+html
+  head
+    title JOB OF MY DREAM
+    link(href='../node_modules/bootstrap3/dist/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='../style.css')
+
+    link(href='../static/fontawesome/fontawesome-all.min.css', rel='stylesheet')
+    script(defer='', src='../static/fontawesome/fontawesome-all.js')
+    // <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+    // <link rel="stylesheet" type="text/css" href="./owl.carousel.css/owl.carousel.css">
+    link(rel='stylesheet', type='text/css', href='../src/css/owl.carousel.min.css')
+    //
+      <link rel="stylesheet" type="text/css" href="./owl.carousel.css/owl.theme.default.css">
+      <link rel="stylesheet" type="text/css" href="./owl.carousel.css/owl.theme.default.min.css">
+      <link rel="stylesheet" type="text/css" href="./owl.carousel.css/owl.theme.green.css">
+      <link rel="stylesheet" type="text/css" href="./owl.carousel.css/owl.theme.green.min.css">
+  body
+    div
+      img.backImgHtml(src='../static/img/html-logo.png')
+      img.backImgCss(src='../static/img/css-logo.png')
+      img.backImgJs(src='../static/img/js-logo.png')
+    #line
+      .rope.ropeL
+      .rope.ropeR
+    div
+      h1 ~JOB OF MY DREAM~
+      i.far.fa-angle-double-left
+    .description
+      h3 If you do what you like, you will be successful
+      hr
+      p
+        | It leaves enough time for family, recreation, self-development and is paid adequately. This job is with the change of activity: with a certain balance of mental and physical activity, favorable to health and the environment. It stores, enhances and promotes spiritual, personal and professional growth. An ideal job allows me to communicate with people and brings social benefits. It is reliable, constant and brings the pleasure of the process and the outcome.
+      .container.mail-panel
+        .col-md-offset-4.col-md-4.panel
+          .row.header Currency Converter
+          .row
+            .col-md-2 Amount:
+            .col-md-10
+              input#amount.form-control(type='text')
+          .row
+            .col-md-2 From:
+            .col-md-4
+              select#from
+            .col-md-2 To:
+            .col-md-4
+              select#to
+          .row
+            | Result:
+            span#result
+    .upperBlock
+      .warpUpperBlock
+        h2 Sort
+        #filters.button-group
+          button.button.is-checked(data-filter='*') show all
+          button.button(data-filter='.know') I know
+          button.button(data-filter=':not(.know)') I want to learn
+          button.button(data-filter='.actual') actual
+        h2 Filter
+        #sorts.button-group
+          button.button.is-checked(data-sort-by='original-order', data-filter='*') original order
+          button.button(data-sort-by='name') name
+          button.button(data-filter='templateers') templateers
+          button.button(data-filter='taskManagers') task managers
+          button.button(data-filter='bandlers') bandlers
+          button.button(data-filter='frameworksJS') frameworks JS
+          button.button(data-filter='preprocessorsCSS') preprocessors CSS
+          button.button(data-filter='frameworksCSS') frameworks CSS
+        .grid
+          .element-item.taskManagers.actual(data-category='taskManagers')
+            h3.name Gulp.js
+          .element-item.taskManagers.know.actual(data-category='taskManagers')
+            h3.name npm
+          .element-item.bandlers.know.actual(data-category='bandlers')
+            h3.name Webpack
+          .element-item.frameworksJS.know.actual(data-category='frameworksJS')
+            h3.name jQuery
+          .element-item.taskManagers.actual(data-category='taskManagers')
+            h3.name Grunt
+          .element-item.frameworksJS.actual(data-category='frameworksJS')
+            h3.name React
+          .element-item.bandlers.actual(data-category='bandlers')
+            h3.name Browserify
+          .element-item.frameworksJS(data-category='frameworksJS')
+            h3.name Ember.js
+          .element-item.bandlers(data-category='bandlers')
+            h3.name RequireJS
+          .element-item.preprocessorsCSS.know.actual(data-category='preprocessorsCSS')
+            h3.name SASS
+          .element-item.preprocessorsCSS(data-category='preprocessorsCSS')
+            h3.name Stylus
+          .element-item.frameworksCSS.know.actual(data-category='frameworksCSS')
+            h3.name Bootstrap
+          .element-item.frameworksJS(data-category='frameworksJS')
+            h3.name Meteor.js
+          .element-item.frameworksCSS(data-category='frameworksCSS')
+            h3.name Foundation
+          .element-item.frameworksJS.actual(data-category='frameworksJS')
+            h3.name Angular2
+          .element-item.preprocessorsCSS.know(data-category='preprocessorsCSS')
+            h3.name Less
+          .element-item.frameworksJS.know.actual(data-category='frameworksJS')
+            h3.name Veu.js
+          .element-item.frameworksCSS.actual(data-category='frameworksCSS')
+            h3.name Susy
+          .element-item.templateers.know.actual(data-category='templateers')
+            h3.name Jade
+          .element-item.templateers(data-category='templateers')
+            h3.name Hogan
+          .element-item.frameworksCSS.actual(data-category='frameworksCSS')
+            h3.name Pure
+          .element-item.templateers(data-category='templateers')
+            h3.name Mustache
+          .element-item.templateers(data-category='templateers')
+            h3.name Walrus
+          .element-item.templateers.actual(data-category='templateers')
+            h3.name Dust
+    .middleBlock
+      .warpMiddleBlock
+        .radialCanvas
+          h5 Сorrelation of knowledge and relevance
+          canvas#radialChart(width='300', height='300')
+        .polarCanvas
+          h5 Degree of ownership of technology
+          canvas#polarChart(width='300', height='300')
+    .sliderBlock
+      .warpSliderBlock
+        .slider-holder
+          .owl-carousel
+            .slider
+              img(src='../static/img/html-logo.png')
+            .slider
+              img(src='../static/img/css-logo.png')
+            .slider
+              img(src='../static/img/js-logo.png')
+            .slider
+              img(src='../static/img/html-logo.png')
+            .slider
+              img(src='../static/img/css-logo.png')
+            .slider
+              img(src='../static/img/js-logo.png')
+            .slider
+              img(src='../static/img/html-logo.png')
+            .slider
+              img(src='../static/img/css-logo.png')
+          .controls
+            .arrow
+              img#right(src='../static/img/arrow-right.png')
+            .arrow
+              img#left(src='../static/img/arrow-left.png')
+    .lowerBlock
+    .footer
+    #base
+    script(src='../node_modules/jquery/dist/jquery.min.js')
+    script(src='../node_modules/bootstrap3/dist/js/bootstrap.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js')
+    script(src='https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js')
+    script(src='https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js')
+    script(src='../src/js/owl.carousel.min.js')

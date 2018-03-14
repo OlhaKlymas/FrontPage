@@ -4,5 +4,287 @@
 body {
 	background-color: #d8dfe7;
 	width: 100%;
-	height: 100px;
+	padding: 0px;
+	margin: 0px;
 }
+h1, h3, p{
+	color: #fcfafd;	
+}
+h1{
+	position: absolute;
+	z-index: 4;
+	text-align: center;
+	width: 100%;
+	font-size: 6.5em;
+	text-shadow: 0 3px 29px black;
+	font-family: 'Myriad Pro';
+	font-stretch: extra-condensed;
+	margin: 20px 0px;
+}
+h3{
+	width: 100%;
+	text-align: center;
+	margin-top: 100px;
+}
+h2{
+  margin: 5px;
+}
+h5{
+  margin: 0px 10px;
+  color: #a22269;
+}
+hr{
+	width: 400px;
+}
+p{
+	margin: 40px;
+}
+#base{
+	margin: 0% 20%;
+	background: #273444;
+	height: 3000px;
+	z-index: 1;
+	position: relative;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+#line{
+	display: flex;
+	flex-direction: row;
+}
+.rope{
+	background: linear-gradient(to left, #bab1a0, #bab1a0, #9e8f76, #857969);
+	width: 10px;
+	height: 150px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+}
+.ropeL{
+	margin-left: 30%;
+}
+.ropeR{
+	position: absolute;
+	margin-right: 30%;
+	right: 0;
+}
+.backImgHtml, .backImgCss, .backImgJs {
+	z-index: 0;
+	width: 30%;
+	position: absolute;
+}
+.backImgHtml{
+	margin-top: 400px;
+}
+.backImgCss{
+	right: 0;
+	margin-top: 1080px;
+}
+.backImgJs{
+	margin-top: 2000px;
+}
+.description{
+	width: 750px;
+	height: 350px;
+	position: absolute;
+	z-index: 3;
+	margin: 75px 0px 0px 420px;
+	background: #435265d1;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+}
+.upperBlock{
+	width: 60%;
+    height: 400px;
+    background: #f199737d;
+    position: absolute;
+    z-index: 3;
+    margin: 700px 21%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+}
+.warpUpperBlock{
+	width: 90%;
+    height: 440px;
+    background: #f16529;
+    margin: -40px 50px;
+	 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+.grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.element-item {
+  position: relative;
+  float: left;
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+}
+.element-item > * {
+  margin: 0;
+  padding: 0;
+}
+.element-item:hover{
+	opacity: 0.75;
+}
+.element-item .name {
+    position: absolute;
+    left: 0px;
+    top: 30px;
+    font-size: 11pt;
+    color: #000;
+    font-family: cursive;
+}
+
+.element-item.templateers     { background: hsl(  222, 90%, 47%); }
+.element-item.taskManagers    { background: hsl( 343, 100%, 81%); }
+.element-item.bandlers        { background: hsl(  72, 100%, 50%); }
+.element-item.frameworksJS    { background: hsl( 108, 100%, 50%); }
+.element-item.preprocessorsCSS{ background: hsl( 144, 100%, 50%); }
+.element-item.frameworksCSS   { background: hsl( 180, 100%, 50%); }
+
+.button {
+  display: inline-block;
+  padding: 0.5em 0.5em;
+  background: #EEE;
+  border: none;
+  border-radius: 7px;
+  background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2) );
+  color: #222;
+  font-family: sans-serif;
+  font-size: 13px;
+  text-shadow: 0 1px white;
+  cursor: pointer;
+  border-radius: 0.5em; 
+}
+
+.button:hover {
+  background-color: #59687b;
+  color: #afaeae;
+}
+
+.button:active,
+.button.is-checked {
+  background-color: #273444;
+}
+
+.button.is-checked {
+  color: white;
+  text-shadow: 0 -1px hsla(0, 0%, 0%, 0.5);
+}
+
+.button:active {
+  box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.8);
+}
+
+.button-group {
+  margin: 10px 4px;
+}
+
+.button-group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.button-group .button {
+  float: left;
+  border-radius: 5px;
+  margin-left: 0;
+  margin-right: 1px;
+}
+.middleBlock{
+  position: absolute;
+  z-index: 3;
+  margin: 1400px 9%;
+  background: #2162af94;
+  width: 70%;
+  height: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+}
+.warpMiddleBlock{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 400px;
+  margin: -50px 50px;
+  background: #369cd6;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+.radialCanvas, .polarCanvas {
+  margin: auto;
+  width: 300px; 
+  height: 330px; 
+  background: #f7e5e5;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+.sliderBlock{
+  position: absolute;
+  z-index: 3;
+  margin: 2200px 19%;
+  background: #f2bf22bd;
+  width: 70%;
+  height: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+}
+.warpSliderBlock{
+  width: 90%;
+  height: 400px;
+  margin: -50px 50px;
+  background: #f9c937;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.slider{
+  width: 100%;
+  height: 300px;
+  display: block;
+  position: relative;
+  color: #fff;
+  font-size: 30px;
+  padding: 0px 10px;
+}
+
+.controls {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  pointer-events: none;
+  margin: 80px;
+}
+.arrow {
+  position: absolute;
+  -webkit-transform: translateY(-50%) scale(1);
+  -ms-transform: translateY(-50%) scale(1);
+  transform: translateY(-50%) scale(1);
+  -webkit-transition: -webkit-transform 0.1s ease-out;
+  transition: -webkit-transform 0.1s ease-out;
+  -o-transition: transform 0.1s ease-out;
+  transition: transform 0.1s ease-out;
+  transition: transform 0.1s ease-out, -webkit-transform 0.1s ease-out; }
+  .arrow:hover {
+  -webkit-transform: translateY(-50%) scale(1.1);
+  -ms-transform: translateY(-50%) scale(1.1);
+  transform: translateY(-50%) scale(1.1); }
+  .arrow:active {
+    -webkit-transform: translateY(-50%) scale(1);
+    -ms-transform: translateY(-50%) scale(1);
+    transform: translateY(-50%) scale(1); }
+  .arrow #left {
+    margin-right: 640px;
+    pointer-events: auto; 
+  }
+  .arrow #right {
+    margin-left: 640px;
+    pointer-events: auto; 
+  }
+
+  
+@import '_adaptiv';

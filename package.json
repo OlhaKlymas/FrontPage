@@ -19,6 +19,7 @@
     "isotope-layout": "^3.0.5",
     "node-sass": "^4.7.2",
     "owl.carousel": "^2.2.0",
+    "pug": "^2.0.1",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.2",
     "sw-precache-webpack-plugin": "^0.11.4",

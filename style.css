@@ -78,11 +78,11 @@ p{
 	margin-top: 2000px;
 }
 .description{
-	width: 750px;
-	height: 350px;
-	position: absolute;
-	z-index: 3;
-	margin: 75px 0px 0px 420px;
+	 width: 56%;
+    height: 350px;
+    position: absolute;
+    z-index: 3;
+    margin: 3% 0px 0px 35%;
 	background: #435265d1;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
 }
@@ -97,7 +97,7 @@ p{
 }
 .warpUpperBlock{
 	width: 90%;
-    height: 440px;
+    height: 40em;
     background: #f16529;
     margin: -40px 50px;
 	 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
@@ -282,3 +282,19 @@ p{
     margin-left: 640px;
     pointer-events: auto; 
   }
+
+
+.main-panel{
+  margin-top: 200px;
+}
+div.row{
+  padding: 10px;
+}
+.header{
+  background-color: darkblue;
+  color: white;
+  font-weight: bold;
+}
+.panel{
+  border-color: darkblue;
+}
