@@ -17,6 +17,20 @@ $('#filters').on( 'click', 'button', function() {
   $grid.isotope({ filter: filterValue });
 });
 
+// let tech = document.getElementById('technology');
+// let techKnow = document.getElementsByClassName('.know');
+// let techActual = document.getElementsByClassName('.actual');
+// let techShouldLearn = document.getElementsByClassName(':not(.know)');
+
+// let divKnow = document.createElement('div');
+// divKnow.className='iKnow';
+// let divIKnow = document.getElementsByClassName('.iKnow');
+// tech.appendChild(divKnow);
+
+// for (var i =0; techKnow.length >= i; i++) {
+//  divIKnow[i].innerHTML = techKnow[i].innerHTML;
+// };
+
 $('#sorts').on( 'click', 'button', function() {
   var sortByValue = $(this).attr('data-sort-by');
   $grid.isotope({ sortBy: sortByValue });
@@ -145,7 +159,6 @@ $(document).ready(function(){
       bgDrop = $(".bg-drop"),
       prev = $("#left"),
       next = $("#right");
-
   owl.owlCarousel({
     loop: true,
     center: true,

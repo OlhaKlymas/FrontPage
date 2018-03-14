@@ -12,11 +12,11 @@ h1{
 	z-index: 4;
 	text-align: center;
 	width: 100%;
-	font-size: 6.5em;
+	font-size: 7.5em;
 	text-shadow: 0 3px 29px black;
 	font-family: 'Myriad Pro';
 	font-stretch: extra-condensed;
-	margin: 20px 0px;
+	margin: 10px 0px;
 }
 h3{
 	width: 100%;
@@ -34,8 +34,16 @@ hr{
 	width: 400px;
 }
 p{
-	margin: 40px;
+	margin: 20px 40px;
 }
+.iSS{
+  width: 30%;
+  margin: auto;
+}
+.iconSS{
+  margin: 7%;
+}
+
 #base{
 	margin: 0% 20%;
 	background: #273444;
@@ -92,7 +100,7 @@ p{
     background: #f199737d;
     position: absolute;
     z-index: 3;
-    margin: 700px 21%;
+    margin: 750px 21%;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
 }
 .warpUpperBlock{
@@ -116,9 +124,9 @@ p{
 
 .element-item {
   position: relative;
-  float: left;
-  width: 60px;
-  height: 60px;
+  float: right;
+  width: 13%;
+  height: 80px;
   margin: 5px;
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
@@ -283,18 +291,40 @@ p{
     pointer-events: auto; 
   }
 
-
 .main-panel{
   margin-top: 200px;
 }
 div.row{
   padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 .header{
-  background-color: darkblue;
+  background-color: #2525504f;
   color: white;
   font-weight: bold;
 }
 .panel{
-  border-color: darkblue;
+  width: 250px;
+  border: none;
+  background: #ffffff9e;
+}
+.container{
+  width: 100%;
+}
+@media print {
+  * -webkit-print-color-adjust: exact; 
+body{
+  background: none;
+}
+.sliderBlock, .container, .iconSS, .backImgs, #line, .upperBlock, .printIcon {
+  display: none;
+}
+.description{
+  width: 100%;
+  margin: 50px 5px;
+}
+.middleBlock{
+  margin: 500px 5px;
+}
 }
