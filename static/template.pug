@@ -8,6 +8,7 @@ html
     link(href='../static/fontawesome/fontawesome-all.min.css', rel='stylesheet')
     link(rel='stylesheet', type='text/css', href='../src/css/owl.carousel.min.css')
   body
+    canvas#canvas
     div.backImgs
       // Изображения на заднем фоне
       img.backImgHtml(src='../static/img/html-logo.png')
@@ -27,14 +28,11 @@ html
         | It leaves enough time for family, recreation, self-development and is paid adequately. This job is with the change of activity: with a certain balance of mental and physical activity, favorable to health and the environment. It stores, enhances and promotes spiritual, personal and professional growth. An ideal job allows me to communicate with people and brings social benefits. It is reliable, constant and brings the pleasure of the process and the outcome.
       div.iSS
         a(href='https://github.com/OlhaKlymas/').iconSS
-          i.fab.fa-github-square(style='color:#fff; font-size:50px;')
-        a(href='https://www.instagram.com/olgaklimass/').iconSS
-          i.fab.fa-instagram(style='color:#fff; font-size:50px;')
+          i.fab.fa-github-square(style='color:#fff; font-size:40px;')
         a(href='https://www.facebook.com/profile.php?id=100005255894654').iconSS
-          i.fab.fa-facebook-square(style='color:#fff; font-size:50px;')
-      // Версия для печати
-      div.printIcon 
-        i.fas.fa-print
+          i.fab.fa-facebook-square(style='color:#fff; font-size:40px;')
+        a(href='https://www.instagram.com/olgaklimass/').iconSS
+          i.fab.fa-instagram(style='color:#fff; font-size:40px;')
       // Конвертер валюты
       .container.mail-panel
         .col-md-offset-4.col-md-4.panel
@@ -42,7 +40,7 @@ html
           .row
             .col-md-2 Amount:
             .col-md-10
-              input#amount.form-control(type='text' value='1000')
+              input#amount.form-control(type='text')
           .row
             .col-md-2 From:
             .col-md-4

@@ -36,9 +36,16 @@ hr{
 p{
 	margin: 20px 40px;
 }
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
 .iSS{
   width: 30%;
-  margin: auto;
+  margin: 0 70%;
 }
 .iconSS{
   margin: 7%;
@@ -59,6 +66,7 @@ p{
 .rope{
 	background: linear-gradient(to left, #bab1a0, #bab1a0, #9e8f76, #857969);
 	width: 10px;
+  z-index: 1;
 	height: 150px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
 }
@@ -308,6 +316,7 @@ div.row{
   width: 250px;
   border: none;
   background: #ffffff9e;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
 .container{
   width: 100%;

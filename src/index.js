@@ -49,6 +49,29 @@ $('.button-group').each(function(i, buttonGroup) {
   });
 });
   
+function convertCurrency(){
+  let from = document.getElementById('from').value;
+  let to = document.getElementById('to').value;
+  let amount = document.getElementById('amount').value;
+  let result = document.getElementById('result');
+  if(from.length > 0 && to.length > 0 && amount.length > 0){
+    let xHttp = new XMLHttpRequest();
+    xHttp.onreadystatechange = function(){
+      if(xHttp.readyState==4 && xHttp.status==200){
+        let obj = JSON.parse(this.responseText);
+        let fact = obj.rates[to];
+        if(fact!=undefined){
+          result.innerHTML = parseFloat(amount)*parseFloat(fact);
+        }
+      }
+    }    
+  xHttp.open('GET','http://api.fixer.io/latest?base='+from+'&symbols='+to, true);
+  xHttp.send();
+  }
+}
+document.getElementById("amount").oninput = convertCurrency();
+document.getElementsByTagName("select").onchange = convertCurrency();
+
 function loadCurrencies(){
   let from = document.getElementById('from');
   let to = document.getElementById('to');
@@ -69,35 +92,13 @@ function loadCurrencies(){
 }
 
 window.onload = loadCurrencies();
-document.getElementById("amount").oninput = convertCurrency();
-document.getElementsByTagName("select").onchange = convertCurrency();
 
 
-function convertCurrency(){
-  let from = document.getElementById('from').value;
-  let to = document.getElementById('to').value;
-  let amount = document.getElementById('amount').value;
-  let result = document.getElementById('result');
-  if(from.length>0 && to.length>0 && amount.length>0){
-    let xHttp = new XMLHttpRequest();
-    xHttp.onreadystatechange = function(){
-      if(xHttp.readyState==4 && xHttp.status==200){
-        let obj = JSON.parse(this.responseText);
-        let fact = obj.rates[to];
-        if(fact!=undefined){
-          result.innerHTML = parseFloat(amount)*parseFloat(fact);
-        }
-      }
-    }    
-  xHttp.open('GET','http://api.fixer.io/latest?base='+from+'&symbols='+to, true);
-  xHttp.send();
-  }
-}
 
 var radialCanvas = document.getElementById("radialChart");
 
 var radialData = {
-  labels: ["npm",  "jQuery", "SASS", "Webpack", "Veu.js", "Pug"],
+  labels: ["npm",  "jQuery", "SASS", "Webpack", "Vue.js", "Pug"],
   datasets: [{
     label: "Degree of ownership of technology",
     backgroundColor: "transparent",
@@ -133,7 +134,7 @@ var radarChart = new Chart(radialCanvas, {
 var polarCanvas = document.getElementById("polarChart");
 
 var polarData = {
-  labels: ["npm",  "jQuery", "SASS", "Webpack", "Veu.js", "Pug"],
+  labels: ["npm",  "jQuery", "SASS", "Webpack", "Vue.js", "Pug"],
   datasets: [{
     data: [3, 3, 4, 3, 4, 5],
     backgroundColor: [
@@ -192,3 +193,59 @@ $(document).ready(function(){
     owl.trigger("prev.owl.carousel");
   })
 });
+
+
+let opts = {
+    count: 3,
+    size: 10, 
+    sizeRandom: 10,
+    sparkLife: 0.1, 
+    spawnOpacity: 1,
+    color: "hsl(hue, 100%, 50%)"
+  },
+
+  canvasBody = document.getElementById("canvas"),
+  canvas = canvasBody.getContext("2d"),
+  w = canvasBody.width = window.innerWidth*0.988,
+  h = canvasBody.height = window.innerHeight,
+  tick = 0,
+  currentHue = 0;
+
+function anim() {
+  setTimeout(function() {
+    window.requestAnimationFrame(anim)
+  }, 1000 / 20 ) 
+  step();
+  ++tick;
+  if(isNaturalNumber(tick/10)){
+    currentHue++;
+  };
+  if(currentHue == 356){
+    currentHue = 0;
+  }
+}
+
+anim() 
+
+function step() {
+  var fillColor = opts.color.replace("hue", currentHue);
+  canvas.fillStyle = fillColor;
+  for (var i = 0; i < Math.round(opts.count); i++) {
+    var random = Math.random() * opts.sizeRandom;
+    canvas.fillRect(-(opts.size/2) + Math.random() * w, -(opts.size/2) + Math.random() * h, opts.size + random, opts.size + random)
+  }
+  canvas.fillStyle = "rgba(216,223,231," + opts.sparkLife + ")"
+  canvas.fillRect(0, 0, w, h)
+}
+
+window.addEventListener("resize", function(){ 
+  w = canvasBody.width = window.innerWidth;
+  h = canvasBody.height = window.innerHeight;
+});
+
+function isNaturalNumber(n) {
+    n = n.toString(); 
+    var n1 = Math.abs(n),
+        n2 = parseInt(n, 10);
+    return !isNaN(n1) && n2 === n1 && n1.toString() === n;
+}
