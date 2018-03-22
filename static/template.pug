@@ -3,10 +3,17 @@ html
   head
     title JOB OF MY DREAM
     link(href='../node_modules/bootstrap3/dist/css/bootstrap.min.css', rel='stylesheet')
-    link(rel='stylesheet', type='text/css', href='../style.css')
-
     link(href='../static/fontawesome/fontawesome-all.min.css', rel='stylesheet')
-    link(rel='stylesheet', type='text/css', href='../src/css/owl.carousel.min.css')
+    link(rel='stylesheet', type='text/css', href='../src/owl.carousel/css/owl.carousel.min.css')
+    link(rel='stylesheet', type='text/css', href='../style.css')
+    link(rel='apple-touch-icon', sizes='180x180', href='./favicon/apple-touch-icon.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='./favicon/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='./favicon/favicon-16x16.png')
+    link(rel='manifest', href='./favicon/site.webmanifest')
+    link(rel='mask-icon', href='./favicon/safari-pinned-tab.svg', color='#000')
+    meta(name='msapplication-TileColor', content='#f0f0f0')
+    meta(name='theme-color', content='#ffffff')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
   body
     canvas#canvas
     div.backImgs
@@ -14,62 +21,96 @@ html
       img.backImgHtml(src='../static/img/html-logo.png')
       img.backImgCss(src='../static/img/css-logo.png')
       img.backImgJs(src='../static/img/js-logo.png')
+    #popup1.popup
+        .object
+          .aboutMy
+            .myName Климась Ольга 
+            p Дата рождения: 27.09.1991
+            p Город: Киев
+            p Телефон: 0734178826
+            p Электронная почта: olhaklymas@gmail.com
+            br
+            .caption Образование
+            p Высшее
+            p  Специальность: «Финансы и кредит»
+            p  Учебное заведение: 
+            p  Национальный университет государственной налоговой службы Украины
+            p  Курсы: «Frontend Developer» в IT-Academy Education
+          .myPhoto
+            img(src='../static/img/myphoto.jpg')
+          br
+          br
+          .caption  Дополнительная информация
+          p  Люблю верстку. Постоянно изучаю новые технологии, совершенствую уже знакомые.
+          br
+          .capLight  Знаю следующий стек технологий:
+          p  HTML5
+          p  pug
+          p CSS3
+          p SASS/SCSS
+          p  Crossbrowsing
+          p  Responsive/ адаптивная верстка
+          p  JavaScript
+          p  Vue.js
+          p  Isotop.js
+          p  Owl-carusel
+          p  Chart.js
+          p  Fontawesome
+          p  Unit-test
+          br
+          .capLight  Умею работать с:
+          p npm
+          p  webpack
+          p  github
+          br
+          .capLight  Есть небольшой опыт работы:
+          p  JSON
+          br
+          .caption Личные качества
+          p  Ответственная, внимательная, усидчивая, тактичная, целеустремленная, коммуникабельная.
+          button#down СОХРАНИТЬ РЕЗЮМЕ
+            a(href='./Резюме_Климась_Frontend.doc', download) 
+              i.fas.fa-arrow-alt-circle-down(style='color:#fff; font-size:50px;')
+    button#myBtn(title='Наверх!')
+      i.fas.fa-arrow-circle-up(style='color:#fff; font-size:50px;')
     // Канаты
     #line
       .rope.ropeL
       .rope.ropeR
     // Контейнер с описанием
     div
-      h1 &#10023; JOB OF MY DREAM &#10023;
+      h1 &#10023; Работа моей мечты &#10023;
     .description
-      h3 If you do what you like, you will be successful
+      h3 Если ты делаешь то, что тебе нравится, ты добьешься успеха!
       hr
       p
-        | It leaves enough time for family, recreation, self-development and is paid adequately. This job is with the change of activity: with a certain balance of mental and physical activity, favorable to health and the environment. It stores, enhances and promotes spiritual, personal and professional growth. An ideal job allows me to communicate with people and brings social benefits. It is reliable, constant and brings the pleasure of the process and the outcome.
-      div.iSS
-        a(href='https://github.com/OlhaKlymas/').iconSS
-          i.fab.fa-github-square(style='color:#fff; font-size:40px;')
-        a(href='https://www.facebook.com/profile.php?id=100005255894654').iconSS
-          i.fab.fa-facebook-square(style='color:#fff; font-size:40px;')
-        a(href='https://www.instagram.com/olgaklimass/').iconSS
-          i.fab.fa-instagram(style='color:#fff; font-size:40px;')
+        | Работа моей мечты оставляет достаточно времени для семьи, отдыха, саморазвития и оплачивается адекватно. Эта работа связана с изменением деятельности: с определенным балансом психической и физической активности, благоприятным для здоровья и окружающей среды. Она хранит, улучшает и способствует духовному, личному и профессиональному росту. Идеальная работа позволяет мне общаться с людьми и приносить социальные выгоды. Она надежная, постоянная и приносит удовольствие от процесса и результата.
+      .content
+        button.show_popup#aboutMy(rel='popup1', title='Мое резюме') Больше обо мне
+      .overlay_popup
       // Конвертер валюты
-      .container.mail-panel
-        .col-md-offset-4.col-md-4.panel
-          .row.header for a start I will agree to a salary
-          .row
-            .col-md-2 Amount:
-            .col-md-10
-              input#amount.form-control(type='text')
-          .row
-            .col-md-2 From:
-            .col-md-4
-              select#from
-            .col-md-2 To:
-            .col-md-4
-              select#to
-          .row
-            | Result:
-            span#result
+      .salaryBox
+        .currency
+        button#myRates(title='Рассчитать!') Рассчитать!
     // Изотоп
     .upperBlock
       .warpUpperBlock
         h2 Sort
         #filters.button-group
-          button.button.is-checked(data-filter='*') show all
-          button.button(data-filter='.know') I know
-          button.button(data-filter=':not(.know)') I want to learn
-          button.button(data-filter='.actual') actual
+          button.button.is-checked(data-filter='*') Все
+          button.button(data-filter='.know') Я знаю
+          button.button(data-filter=':not(.know)') Предстоит выучить
+          button.button(data-filter='.actual') Актуальные
         h2 Filter
         #sorts.button-group
-          button.button.is-checked(data-sort-by='original-order', data-filter='*') original order
-          button.button(data-sort-by='name') name
-          button.button(data-filter='templateers') templateers
-          button.button(data-filter='taskManagers') task managers
-          button.button(data-filter='bandlers') bandlers
-          button.button(data-filter='frameworksJS') frameworks JS
-          button.button(data-filter='preprocessorsCSS') preprocessors CSS
-          button.button(data-filter='frameworksCSS') frameworks CSS
+          button.button.is-checked(data-sort-by='original-order', data-filter='*') Первоначальный список
+          button.button(data-sort-by='name') Имя
+          button.button(data-filter='.templateers') Шаблонизаторы
+          button.button(data-filter='.taskManagers') Менеджеры задач
+          button.button(data-filter='.bandlers') Бандлеры
+          button.button(data-filter='.frameworksJS') Фреймворки JS
+          button.button(data-filter='.preprocessorsCSS') Препроцессоры CSS
+          button.button(data-filter='.frameworksCSS') Фреймворки CSS
         .grid
           a(href='https://gulpjs.com/')
             .element-item.taskManagers.actual(data-category='taskManagers')
@@ -143,17 +184,14 @@ html
           a(href='http://www.dustjs.com/')
             .element-item.templateers.actual(data-category='templateers')
               h3.name Dust
-    // Изотоп для печати
-    #technology
-    
     // График и диаграмма
     .middleBlock
       .warpMiddleBlock
         .radialCanvas
-          h5 Сorrelation of knowledge and relevance
+          h5 Соотношение знаний и актуальности
           canvas#radialChart(width='300', height='300')
         .polarCanvas
-          h5 Degree of ownership of technology
+          h5 Степень владения технологией
           canvas#polarChart(width='300', height='300')
     // Слайдер
     .sliderBlock
@@ -161,29 +199,42 @@ html
         .slider-holder
           .owl-carousel
             .slider
-              img(src='../static/img/html-logo.png')
+              img(src='../static/img/slid1.png')
             .slider
-              img(src='../static/img/css-logo.png')
+              img(src='../static/img/slid2.png')
             .slider
-              img(src='../static/img/js-logo.png')
+              img(src='../static/img/slid3.png')
             .slider
-              img(src='../static/img/html-logo.png')
+              img(src='../static/img/slid4.png')
             .slider
-              img(src='../static/img/css-logo.png')
+              img(src='../static/img/slid5.png')
             .slider
-              img(src='../static/img/js-logo.png')
+              img(src='../static/img/slid6.png')
             .slider
-              img(src='../static/img/html-logo.png')
+              img(src='../static/img/slid7.png')
             .slider
-              img(src='../static/img/css-logo.png')
+              img(src='../static/img/slid8.png')
           .controls
             .arrow
-              i#right.fas.fa-angle-double-right.fa-7x(style='color:violet;')
+              i#right.fas.fa-angle-double-right.fa-3x(style='color:#a06d12;')
             .arrow
-              i#left.fas.fa-angle-double-left.fa-7x
+              i#left.fas.fa-angle-double-left.fa-3x(style='color:#a06d12;')
     .lowerBlock
-    .footer
-    #base
+    #footer
+      .myInfo
+        .top 
+          p 073 417 88 26 
+          i.fas.fa-phone-square(style='color:#fff; font-size:60px; margin: 0px 10px;')
+          br
+          i.fas.fa-envelope-square(style='color:#fff; font-size:60px;')
+          p olhaklymas@gmail.com
+      .myInfo
+        .bot 
+          a(href='https://github.com/OlhaKlymas/')
+            i.fab.fa-github-square(style='color:#fff; font-size:60px;')
+          a(href='#')
+            i.fab.fa-linkedin(style='color:#fff; font-size:60px;')
+    #base   
     script(src='../node_modules/jquery/dist/jquery.min.js')
     script(src='../node_modules/bootstrap3/dist/js/bootstrap.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')
@@ -191,7 +242,5 @@ html
     script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js')
-    script(src='https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js')
-    script(src='https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js')
-    script(src='../src/js/owl.carousel.min.js')
-    script(defer='', src='../static/fontawesome/fontawesome-all.js')
+    script(src='../src/owl.carousel/js/owl.carousel.min.js')
+    script(defer='', src='../static/fontawesome/fontawesome-all.js') 

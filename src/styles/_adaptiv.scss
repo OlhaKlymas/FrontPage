@@ -1,0 +1,56 @@
+$breack-small:640px;
+$breack-large:860px;
+
+@media (max-width: $breack-small) {
+  .description{
+    height: 35em;
+  }
+  h3{
+    margin-top: 50px;
+    font-size: 4vw;
+  }
+  .salaryBox{
+    margin: -3.75em 0.25em;
+  }
+  .warpUpperBlock{
+    height: 200vh;
+  }
+  .warpMiddleBlock{
+    flex-direction: column;
+  }
+  .middleBlock{
+    margin: 140em 9%;
+  }
+  .sliderBlock{
+    margin: 200em 19%;
+  }
+  #base{
+    height: 235em;
+  }
+}
+
+@media (min-width: $breack-small) and (max-width: $breack-large) {
+  .description{
+    height: 31em;
+  }
+  h3{
+    margin-top: 50px;
+    font-size: 3vw;
+  }
+  .warpUpperBlock{
+    height: 170vh;
+  }
+  .warpMiddleBlock{
+    flex-direction: column;
+  }
+  .sliderBlock{
+    margin: 180em 19%;
+  }
+
+  #base{
+    height: 220em;
+  }
+}
+
+@media (min-width: $breack-large) {
+}

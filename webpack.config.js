@@ -1,7 +1,8 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-// const $ = require("jquery");
+const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
+const $ = require("jquery");
 // const Chart = require('chart.js');
 
 module.exports={
@@ -12,35 +13,63 @@ module.exports={
 		filename:"[name].js",
 		path: path.resolve(__dirname,"dist"),
 	},
-plugins: [
-	new HtmlWebpackPlugin({template: "./static/template.html"}),
-    // new webpack.ProvidePlugin({
-    //   $: 'jquery',
-    //   jQuery: 'jquery',
-    //   'window.jQuery': 'jquery'
-    // })
-],
-module:{
-	rules:[
-			{
-				test: /\.css$/, 
-					loader: "css-loader"
-			},
-			{
-				test: /\.sass$/, 
+	resolve:{
+		extensions:[".js", ".json", ".scss", ".ttf"],
+		alias:{
+			fonts:path.join(__dirname, "static", "fonts")
+		}
+	},
+	plugins:[
+		new HtmlWebpackPlugin({template: "./static/template.html"}),
+	    new webpack.ProvidePlugin({
+	      $: 'jquery',
+	      jQuery: 'jquery',
+	      'window.jQuery': 'jquery'
+	    }),
+	    new SWPrecacheWebpackPlugin({
+	    	cacheId: "FP" + Math.random(),
+	    	filename: "servise-worker.js",
+	    	staticFileGlobs: ["dist/**.*"],
+	    	minify: false,
+	    	stripPrefix: "dist/"
+	    })
+	],
+	module:{
+		rules:[
+				{
+					test: /\.css$/, 
+						loader: "css-loader"
+				},
+				{
+					test: /\.scss$/, 
+					use:[
+						{loader: "style-loader"},
+						{loader: "css-loader"},
+						{loader: "sass-loader"}
+					]
+				},
+				{
+				test: /\.pug$/, 
 				use:[
-					{loader: "style-loader"},
-					{loader: "css-loader"},
-					{loader: "sass-loader"}
+					{loader: 'pug-loader'}     
 				]
-			},
-			{
-                test: /\.pug$/,
-                loader: 'pug-loader',
-                options: {
-                    pretty: true
-                }
-            }
-	]
-}
+				},
+				{
+			        test: /\.(woff|woff2|eot|ttf|otf)$/,
+					loader: "file-loader"
+		      	},
+		      	{
+	                test: /\.(png|jpg|gif|svg)$/,
+	                use: [
+	                    {
+	                        loader: "url-loader",
+	                        options: {
+	                            limit: 8000, // Convert images < 8kb to base64 strings
+	                            //  name: 'images/[hash]-[name].[ext]'
+	                        }
+	                    }
+	                ]
+	            }
+		]
+	}
 };

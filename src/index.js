@@ -1,7 +1,99 @@
-// import ownCarousel from './js/own.carousel.min.js'
-// import isotope from './js/isotope.pkgd.min.js'
-// import jQuery from './js/jquery-3.3.1.min.js'
-// import chart from './js/Chart.min.js'
+import ctrl from './controllers/currencyCtrl.js';
+ctrl.render();
+// ctrlP.render();
+// import '.../style.css';
+import '../node_modules/jquery/dist/jquery.min.js';
+
+// import '../node_modules/bootstrap3/dist/js/bootstrap.min.js';
+// import '../node_modules/bootstrap3/dist/css/bootstrap.min.css';
+import 'owl.carousel';
+// import  "isotope-layout/dist/isotope.pkgd.min.js";
+// import 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js';
+// import 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js';
+// import 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js';
+// import 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js';
+
+// import '../static/fontawesome/fontawesome-all.js';
+// import '../static/fontawesome/fontawesome-all.min.css';
+
+// import '../node_modules/owl.carousel/dist/assets/owl.carousel.css';
+var jQueryBridget = require('jquery-bridget');
+var Isotope = require('isotope-layout');
+// make Isotope a jQuery plugin
+jQueryBridget( 'isotope', Isotope, $ );
+
+(function(){
+  if("seviceWorker" in navigator){
+    navigator.serviceWorker.register("service-worker.js")
+  }
+})();
+
+
+//Конвертер
+
+document.getElementById("myRates").onclick = function ratesFunction() {
+  let curr = document.getElementsByClassName("curr"),
+      inputUSD = document.getElementById('USD'),
+      inputBTC = document.getElementById('BTC'),
+      inputRUR = document.getElementById('RUR'),
+      inputEUR = document.getElementById('EUR'),
+      mySalary = document.getElementById('mySalary'),
+      salary = document.getElementById('salary'),
+      myRes = document.getElementById('myRes'),
+      res = document.getElementById('res');
+    for (let i = 0; curr.length >= i; i++) {
+       if(curr[i].checked){
+             if (inputUSD.checked) {
+                res.value = salary.value + ' USD';
+                myRes.value = mySalary.value + ' USD';
+            } 
+            else if (inputRUR.checked) {
+                res.value = inputRUR.value/inputUSD.value*salary.value + ' RUR';
+                myRes.value = inputRUR.value/inputUSD.value*mySalary.value + ' RUR';
+            } 
+            else if (inputEUR.checked) {
+                res.value = inputUSD.value/inputEUR.value*salary.value + ' EUR';
+                myRes.value = inputUSD.value/inputEUR.value*mySalary.value + ' EUR';
+            } 
+            else if (inputBTC.checked) {
+                res.value = inputUSD.value/inputBTC.value*salary.value + ' BTC';
+                myRes.value = inputUSD.value/inputBTC.value*mySalary.value + ' BTC';
+            } 
+        }
+    }
+}
+
+
+
+//popup
+
+$('.show_popup').click(function() {
+    var popup_id = $('#' + $(this).attr("rel"));
+    $(popup_id).show();
+    $('.overlay_popup').show();
+})
+$('.overlay_popup').click(function() {
+    $('.overlay_popup, .popup').hide();
+})
+
+
+//toTop
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+document.getElementById("myBtn").onclick = function topFunction() {
+    $('html,body').animate({ scrollTop: 0 }, 1000);
+}
+
+// Изотоп
 
 let $grid = $('.grid').isotope({
   itemSelector: '.element-item',
@@ -16,20 +108,6 @@ $('#filters').on( 'click', 'button', function() {
   var filterValue = $(this).attr('data-filter');
   $grid.isotope({ filter: filterValue });
 });
-
-// let tech = document.getElementById('technology');
-// let techKnow = document.getElementsByClassName('.know');
-// let techActual = document.getElementsByClassName('.actual');
-// let techShouldLearn = document.getElementsByClassName(':not(.know)');
-
-// let divKnow = document.createElement('div');
-// divKnow.className='iKnow';
-// let divIKnow = document.getElementsByClassName('.iKnow');
-// tech.appendChild(divKnow);
-
-// for (var i =0; techKnow.length >= i; i++) {
-//  divIKnow[i].innerHTML = techKnow[i].innerHTML;
-// };
 
 $('#sorts').on( 'click', 'button', function() {
   var sortByValue = $(this).attr('data-sort-by');
@@ -49,50 +127,6 @@ $('.button-group').each(function(i, buttonGroup) {
   });
 });
   
-function convertCurrency(){
-  let from = document.getElementById('from').value;
-  let to = document.getElementById('to').value;
-  let amount = document.getElementById('amount').value;
-  let result = document.getElementById('result');
-  if(from.length > 0 && to.length > 0 && amount.length > 0){
-    let xHttp = new XMLHttpRequest();
-    xHttp.onreadystatechange = function(){
-      if(xHttp.readyState==4 && xHttp.status==200){
-        let obj = JSON.parse(this.responseText);
-        let fact = obj.rates[to];
-        if(fact!=undefined){
-          result.innerHTML = parseFloat(amount)*parseFloat(fact);
-        }
-      }
-    }    
-  xHttp.open('GET','http://api.fixer.io/latest?base='+from+'&symbols='+to, true);
-  xHttp.send();
-  }
-}
-document.getElementById("amount").oninput = convertCurrency();
-document.getElementsByTagName("select").onchange = convertCurrency();
-
-function loadCurrencies(){
-  let from = document.getElementById('from');
-  let to = document.getElementById('to');
-  let xHttp = new XMLHttpRequest();
-  xHttp.onreadystatechange = function(){
-    if(xHttp.readyState==4 && xHttp.status==200){
-      let obj = JSON.parse(this.responseText);
-      let options = '';
-      for(key in obj.rates){
-        options = options + '<option>'+key+'</option>';
-      }
-      from.innerHTML = options;
-      to.innerHTML = options;
-    }
-  }
-  xHttp.open('GET','http://api.fixer.io/latest', true);
-  xHttp.send();
-}
-
-window.onload = loadCurrencies();
-
 
 
 var radialCanvas = document.getElementById("radialChart");
@@ -206,7 +240,7 @@ let opts = {
 
   canvasBody = document.getElementById("canvas"),
   canvas = canvasBody.getContext("2d"),
-  w = canvasBody.width = window.innerWidth*0.988,
+  w = canvasBody.width = window.innerWidth*0.9,
   h = canvasBody.height = window.innerHeight,
   tick = 0,
   currentHue = 0;
@@ -223,9 +257,9 @@ function anim() {
   if(currentHue == 356){
     currentHue = 0;
   }
-}
+};
 
-anim() 
+anim();
 
 function step() {
   var fillColor = opts.color.replace("hue", currentHue);
@@ -236,7 +270,7 @@ function step() {
   }
   canvas.fillStyle = "rgba(216,223,231," + opts.sparkLife + ")"
   canvas.fillRect(0, 0, w, h)
-}
+};
 
 window.addEventListener("resize", function(){ 
   w = canvasBody.width = window.innerWidth;
@@ -248,4 +282,134 @@ function isNaturalNumber(n) {
     var n1 = Math.abs(n),
         n2 = parseInt(n, 10);
     return !isNaN(n1) && n2 === n1 && n1.toString() === n;
-}
+};
+
+
+
+// Конвертер валют
+
+
+$(document).ready(function(){
+  
+$('#salary').on('change', function () {
+  
+  let custom_input = $('input:checked').val();
+  let custom_res = $('#salary').val() * custom_input;
+  let my_res = 400 * $('#USD').val();
+
+  $('.currency').on('click', 'input', function() {
+    
+    $('#salary').val(custom_res / $('input:checked').val());
+    $('#mySalary').val(my_res / $('input:checked').val());
+    });
+  });
+}); 
+     
+//      inputs.addEventListener('click', rates);
+// function rates(){
+//   if (inputUSD.oninput){
+//     salary.value = inputUSD.value*mySalary.value;
+//             }
+//   else if (inputEUR.oninput) {
+//      salary.value = inputEUR.value*mySalary.value;
+//             }
+//   else if (inputRUR.oninput) {
+//     salary.value = inputRUR.value*mySalary.value;
+//             }
+//   else if (inputBTC.oninput) {
+//     salary.value = inputBTC.value*mySalary.value;
+//             }
+// }
+
+      // inputUSD.addEventListener("oninput", eventUSD);
+      // function eventUSD() {
+      //           salary.value = inputUSD.value*salary.value;
+      //           mySalary.value = inputUSD.value*mySalary.value;
+      //       };
+      // inputRUR.addEventListener("oninput", eventRUR);
+      // function eventRUR() {
+      //           salary.value = inputRUR.value*salary.value;
+      //           mySalary.value = inputRUR.value*mySalary.value;
+      //       };
+      // inputEUR.addEventListener("oninput", eventEUR);
+      // function() eventEUR{
+      //           salary.value = inputEUR.value*salary.value;
+      //           mySalary.value = inputEUR.value*mySalary.value;
+      //       };
+      // inputBTC.addEventListener("oninput", eventBTC); 
+      // function eventBTC(){
+      //           salary.value = inputBTC.value*salary.value;
+      //           mySalary.value = inputBTC.value*mySalary.value;
+      //       } ;
+  
+
+
+//   let usd = document.getElementById('USD'),
+//       eur = document.getElementById('EUR'),
+//       rur = document.getElementById('RUR'),
+//       btc = document.getElementById('BTC'),
+//       salary = document.getElementById('salary'),
+//       mySalary = document.getElementById('mySalary');
+
+// mySalary.addEventListener('keyup', salaryEvent);
+
+// function salaryEvent() {
+//     if (event.keyCode == 13) {
+//         if (usd.checked) {
+//             mySalary.value = salary.value * usd.value;
+//         }  
+//         else if (eur.checked) {
+//             mySalary.value = salary.value * eur.value;
+//         } 
+//         else if (rur.checked) {
+//             mySalary.value = salary.value * rur.value;
+//         }
+//         else if (btc.checked) {
+//             mySalary.value = salary.value * btc.value;
+//         }
+//     }
+// }
+
+// let mySalary = document.getElementById('mySalary');
+// let salary = document.getElementById('salary');
+// let usd = document.getElementById('USD');
+// let eur = document.getElementById('EUR');
+// let rur = document.getElementById('RUR');
+// let btc = document.getElementById('BTC');
+// let currencyInp = document.getElementsByName('curr');
+// alert(usd.value);
+// salary.value =2;
+
+
+
+// for (let i = 0; i < curre.lenght; i++) {
+//   if(curr[i].checked){
+//         if (usd.checked) {
+//             salary.value = usd.value;
+//         } 
+//         else if (eur.checked) {
+//             salary.value = eur.value;
+//         } 
+//         else if (rur.checked) {
+//             salary.value = rur.value;
+//         } 
+//         else if (btc.checked) {
+//             salary.value = btc.value;
+//         }
+//    }
+// }
+
+        // if (usd.checked) {
+        //     salary.value = usd.value;
+        // } 
+        // else if (eur.checked) {
+        //     salary.value = eur.value;
+        // } 
+        // else if (rur.checked) {
+        //     salary.value = rur.value;
+        // } 
+        // else if (btc.checked) {
+        //     salary.value = btc.value;
+        // }
+ 
+

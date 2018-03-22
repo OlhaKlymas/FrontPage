@@ -1,5 +1,9 @@
-@import '_reset';
-@import '_var';
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: url('./fonts/Roboto-Bold.ttf');
+}
 
 body {
 	background-color: #d8dfe7;
@@ -15,11 +19,11 @@ h1{
 	z-index: 4;
 	text-align: center;
 	width: 100%;
-	font-size: 6.5em;
+	font-size: 7.5em;
 	text-shadow: 0 3px 29px black;
 	font-family: 'Myriad Pro';
 	font-stretch: extra-condensed;
-	margin: 20px 0px;
+	margin: 10px 0px;
 }
 h3{
 	width: 100%;
@@ -27,7 +31,8 @@ h3{
 	margin-top: 100px;
 }
 h2{
-  margin: 5px;
+  font-family: 'Myriad Pro';
+  padding: 5px 0px 0px 20px;
 }
 h5{
   margin: 0px 10px;
@@ -37,8 +42,43 @@ hr{
 	width: 400px;
 }
 p{
-	margin: 40px;
+	margin: 20px 40px;
 }
+label{
+  color: #daafaf;
+}
+#mySalary , #salary{
+  color:#000;
+}
+.salaryBox{
+  background: #182e4a61;
+    width: 18em;
+    height: 13em;
+    padding: 1px;
+    margin: -1.875em 6.25em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.currency{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 14px;
+}
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.iSS{
+  width: 30%;
+  margin: 0 70%;
+}
+.iconSS{
+  margin: 7%;
+}
+
 #base{
 	margin: 0% 20%;
 	background: #273444;
@@ -54,7 +94,8 @@ p{
 .rope{
 	background: linear-gradient(to left, #bab1a0, #bab1a0, #9e8f76, #857969);
 	width: 10px;
-	height: 150px;
+  z-index: 1;
+	height: 9.375em;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
 }
 .ropeL{
@@ -71,36 +112,36 @@ p{
 	position: absolute;
 }
 .backImgHtml{
-	margin-top: 400px;
+	margin-top: 25em;
 }
 .backImgCss{
 	right: 0;
-	margin-top: 1080px;
+	margin-top: 68em;
 }
 .backImgJs{
-	margin-top: 2000px;
+	margin-top: 125em;
 }
 .description{
-	width: 750px;
-	height: 350px;
-	position: absolute;
-	z-index: 3;
-	margin: 75px 0px 0px 420px;
+	 width: 56%;
+    height: 350px;
+    position: absolute;
+    z-index: 3;
+    margin: 3% 0px 0px 35%;
 	background: #435265d1;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
 }
 .upperBlock{
 	width: 60%;
-    height: 400px;
+  height: 48em;
     background: #f199737d;
     position: absolute;
     z-index: 3;
-    margin: 700px 21%;
+    margin: 750px 21%;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
 }
 .warpUpperBlock{
 	width: 90%;
-    height: 440px;
+    height: 46em;
     background: #f16529;
     margin: -40px 50px;
 	 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
@@ -110,6 +151,7 @@ p{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-left: 8%;
 }
 .grid:after {
   content: '';
@@ -119,9 +161,9 @@ p{
 
 .element-item {
   position: relative;
-  float: left;
-  width: 60px;
-  height: 60px;
+  float: right;
+  width: 13%;
+  height: 80px;
   margin: 5px;
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
@@ -202,7 +244,7 @@ p{
 .middleBlock{
   position: absolute;
   z-index: 3;
-  margin: 1400px 9%;
+  margin: 120em 9%;
   background: #2162af94;
   width: 70%;
   height: 400px;
@@ -235,7 +277,7 @@ p{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
 }
 .warpSliderBlock{
-  width: 90%;
+  width: 100%;
   height: 400px;
   margin: -50px 50px;
   background: #f9c937;
@@ -243,7 +285,7 @@ p{
 }
 
 .slider{
-  width: 100%;
+  width: 80%;
   height: 300px;
   display: block;
   position: relative;
@@ -254,10 +296,9 @@ p{
 
 .controls {
   position: absolute;
-  width: 100%;
-  top: 50%;
+  top: 70%;
+  left: 20%;
   pointer-events: none;
-  margin: 80px;
 }
 .arrow {
   position: absolute;
@@ -286,5 +327,51 @@ p{
     pointer-events: auto; 
   }
 
-  
-@import '_adaptiv';
+.main-panel{
+  margin-top: 200px;
+}
+div.row{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.header{
+  background-color: #2525504f;
+  color: white;
+  font-weight: bold;
+}
+.panel{
+  width: 250px;
+  border: none;
+  background: #ffffff9e;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.container{
+  width: 100%;
+}
+.owl-carousel{
+      width: 90%;
+    margin: auto;
+}
+.owl-carousel .owl-item img{
+  width: 140%;
+}
+.slider-holder{
+  padding-top: 3%;
+}
+@media print {
+    * -webkit-print-color-adjust: exact; 
+  body{
+    background: none;
+  }
+  .sliderBlock, .container, .iconSS, .backImgs, #line, .upperBlock, .printIcon, svg {
+    display: none;
+  }
+  .description{
+    width: 100%;
+    margin: 50px 5px;
+  }
+  .middleBlock{
+    margin: 500px 5px;
+  }
+}
