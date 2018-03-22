@@ -1,6 +1,5 @@
 <div align="center">
-    <img src="./static/img/front_end.jpg" width="500">
-    <h1>FrontPage</h1>
+   <h1>FrontPage</h1>
 </div>
 
 ### Запуск  

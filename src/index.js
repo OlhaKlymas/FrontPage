@@ -48,8 +48,8 @@ document.getElementById("myRates").onclick = function ratesFunction() {
                 myRes.value = mySalary.value + ' USD';
             } 
             else if (inputRUR.checked) {
-                res.value = inputRUR.value/inputUSD.value*salary.value + ' RUR';
-                myRes.value = inputRUR.value/inputUSD.value*mySalary.value + ' RUR';
+                res.value = inputUSD.value/inputRUR.value*salary.value + ' RUR';
+                myRes.value = inputUSD.value/inputRUR.value*mySalary.value + ' RUR';
             } 
             else if (inputEUR.checked) {
                 res.value = inputUSD.value/inputEUR.value*salary.value + ' EUR';

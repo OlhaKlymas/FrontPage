@@ -73,7 +73,7 @@ label{
 }
 .salaryBox{
   background: #182e4a61;
-    width: 25em;
+    width: 18em;
     height: 25em;
     padding: 1px;
     margin: -1.875em 6.25em;
@@ -95,7 +95,7 @@ label{
   font-size: 1.1em;
   font-weight: bold;
   font-family: 'Roboto';
-  margin: 1em 8em;
+  margin: 1em 5em;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
 }
@@ -486,7 +486,7 @@ label{
   body{
     background: none;
   }
-  .sliderBlock, .container, .iconSS, .backImgs, #line, .upperBlock, .printIcon, svg {
+  .sliderBlock, #footer, .warpMiddleBlock, #down, #myBtn, .container, .iconSS, .backImgs, #line, .upperBlock, .printIcon, #aboutMy, .salaryBox, #canvas {
     display: none;
   }
   .description{
@@ -495,6 +495,11 @@ label{
   }
   .middleBlock{
     margin: 500px 5px;
+  }
+  #popup1{
+    display: block;
+    top:230px;
+    left: -150px;
   }
 }
 
