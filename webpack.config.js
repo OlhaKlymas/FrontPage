@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 const $ = require("jquery");
 // const Chart = require('chart.js');
@@ -32,7 +33,13 @@ module.exports={
 	    	staticFileGlobs: ["dist/**.*"],
 	    	minify: false,
 	    	stripPrefix: "dist/"
-	    })
+	    }),
+	    new CopyWebpackPlugin([{ from: 'static/img/*.*'}]),
+		new CopyWebpackPlugin([{ from: 'static/fonts/*.*'}]),
+		new CopyWebpackPlugin([{ from: 'static/fontawesome/*.*'}]),
+		new CopyWebpackPlugin([{ from: 'static/webfonts/*.*'}]),
+		new CopyWebpackPlugin([{ from: 'src/styles/style.css'}]),
+		new CopyWebpackPlugin([{ from: 'static//resume_klymas.doc'}])
 	],
 	module:{
 		rules:[

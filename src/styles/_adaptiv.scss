@@ -2,55 +2,60 @@ $breack-small:640px;
 $breack-large:860px;
 
 @media (max-width: $breack-small) {
-  .description{
+  .description {
     height: 35em;
   }
-  h3{
+  h3 {
     margin-top: 50px;
     font-size: 4vw;
   }
-  .salaryBox{
+  .salaryBox {
     margin: -3.75em 0.25em;
   }
-  .warpUpperBlock{
+  .warpUpperBlock {
     height: 200vh;
   }
-  .warpMiddleBlock{
+  .warpMiddleBlock {
     flex-direction: column;
   }
-  .middleBlock{
-    margin: 140em 9%;
+  .middleBlock {
+    margin: 140em 0 0 9%;
   }
-  .sliderBlock{
-    margin: 200em 19%;
+  .sliderBlock {
+    margin: 200em 0 0 19%;
   }
-  #base{
+  #base {
     height: 235em;
   }
 }
 
 @media (min-width: $breack-small) and (max-width: $breack-large) {
-  .description{
+  .description {
     height: 31em;
   }
-  h3{
+  h3 {
     margin-top: 50px;
     font-size: 3vw;
   }
-  .warpUpperBlock{
+  .warpUpperBlock {
     height: 170vh;
   }
-  .warpMiddleBlock{
+  .warpMiddleBlock {
     flex-direction: column;
   }
-  .sliderBlock{
-    margin: 180em 19%;
+  .sliderBlock {
+    margin: 180em 0 0 19%;
   }
-
-  #base{
+  #base {
     height: 220em;
+  }
+  #footer {
+    margin-top: 218em;
   }
 }
 
 @media (min-width: $breack-large) {
+  h1 {
+    font-size: 7vw;
+  }
 }
